@@ -28,3 +28,26 @@ function splitString(str: string | null) {
 }
 
 splitString(null)
+
+boolean = true
+
+enum Fruit {
+  Plum = 5,
+  Peach = 5,
+  //Banana = 6,
+}
+
+function handleUnknownMember(member: never): never {
+  throw new Error('Unhandled enum member: ' + Fruit[member])
+}
+
+function determinePortionSize(fruit: Fruit) {
+  switch (fruit) {
+    case Fruit.Plum:
+      return 1
+    case Fruit.Plum:
+      return 10
+    default:
+      handleUnknownMember(fruit)
+  }
+}
